@@ -7,10 +7,10 @@
     <!-- Latest compiled and minified CSS & JS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" href="../public/assets/css/style.css">
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
 <body>
@@ -156,45 +156,74 @@
                     <option value="5">5</option>
                 </select>
             </div>
-            <button type="submit" id="submit" class="btn btn-primary submit btn-lg btn-block">Submit</button>
+            <a href="/results">
+                <button type="submit" id="submit" class="btn btn-primary submit btn-lg btn-block">Submit</button>
+            </a>
         </form>
         <hr>
     </div>
+
     <script>
+
         $('#submit').on('click', function (event) {
             event.preventDefault();
-            //var value = $(event).val();
-            var newFriend = []
-            var name = $('#name').val().trim();
-            var photo = $('#photo').val().trim();
-            var questionOne = $('#questionOne').val();
-            var questionTwo = $('#questionTwo').val();
-            var questionThree = $('#questionThree').val();
-            var questionfour = $('#questionFour').val();
-            var questionFive = $('#questionFive').val();
-            var questionSix = $('#questionSix').val();
-            var questionSeven = $('#questionSeven').val();
-            var questionEight = $('#questionEight').val();
-            var questionNine = $('#questionNine').val();
-            var questionTen = $('#questionTen').val();
-            console.log("Name: ", name, "Photo: ", photo, "Q1: ", questionOne, "Q2: ", questionTwo, questionThree, questionfour, questionFive, questionSix, questionSeven, questionEight, questionNine, questionTen)
-            newFriend.push(
-                {name: name, 
-                 photo: photo,
-                 scores: [
-                     questionOne, 
-                     questionTwo,
-                     questionThree,
-                     questionFour,
-                     questionFive,
-                     questionSix,
-                     questionSeven,
-                     questionEight,
-                     questionNine,
-                     questionTen
-                 ]
-                });
+
+            var newFriend = {
+                name: $('#name').val().trim(),
+                photo: $('#photo').val().trim(),
+                scores: [
+                    $('#questionOne').val(),
+                    $('#questionTwo').val(),
+                    $('#questionThree').val(),
+                    $('#questionFour').val(),
+                    $('#questionFive').val(),
+                    $('#questionSix').val(),
+                    $('#questionSeven').val(),
+                    $('#questionEight').val(),
+                    $('#questionNine').val(),
+                    $('#questionTen').val()
+                ]
+            };
             console.log(newFriend);
+            $.post("/api/friends", newFriend,
+                function (data) {
+                    if (data) {
+                        console.log("Friend has been added...");
+                        console.log("We are working to make a match!");
+                        getMatch();
+
+                    }
+                    else {
+                        console.log("Error");
+                    }
+                })
+
+            function getMatch() {
+                var currentURL = window.location.origin;
+                
+                $.ajax({
+                    url: currentURL + "/api/friends",
+                    method: "GET"
+                }).then(function (friendsData) {
+                    console.log("--------------");
+                    console.log("URL: " + currentURL + "/api/friends");
+                    console.log("--------------");
+                    console.log(friendsData);
+                    console.log("--------------");
+                    console.log("--------------");
+
+                    var randomPerson = friendsData[Math.floor(Math.random() * friendsData.length)];
+
+                    swal({
+                        title: "Your match is..",
+                        text: randomPerson.name,
+                        icon: "success", 
+                        buttons: true
+                    })
+
+                });
+            }
+
         });
     </script>
 </body>
