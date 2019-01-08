@@ -214,12 +214,22 @@
 
                     var randomPerson = friendsData[Math.floor(Math.random() * friendsData.length)];
 
-                    swal({
-                        title: "Your match is..",
-                        text: randomPerson.name,
-                        icon: "success", 
-                        buttons: true
-                    })
+                    // swal({
+                    //     title: "Your match is..",
+                    //     text: randomPerson.name,
+                    //     icon: "success", 
+                    //     buttons: true
+                    // })
+
+                    function createAlert() {
+                        console.log("Creating Alert");
+                        console.log(randomPerson);
+
+                        var modal = $('<div class="modal" tabindex="-1" role="dialog">');
+                        var modalTitle = $('<h5 class="modal-title">').text("Your match is..");
+                        var modalBody = $('<div class="modal-body">');
+                        
+                    }
 
                 });
             }
