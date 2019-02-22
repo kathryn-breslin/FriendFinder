@@ -7,7 +7,7 @@
     <!-- Latest compiled and minified CSS & JS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../public/assets/css/style.css">
+    <!-- <link rel="stylesheet" href="../public/assets/css/style.css"> -->
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -213,24 +213,24 @@
                     console.log("--------------");
 
                     var randomPerson = friendsData[Math.floor(Math.random() * friendsData.length)];
+                    console.log(randomPerson);
+                    swal({
+                        title: "Your match is..",
+                        text: randomPerson.name,
+                        icon: "success", 
+                        buttons: true
+                    })
 
-                    // swal({
-                    //     title: "Your match is..",
-                    //     text: randomPerson.name,
-                    //     icon: "success", 
-                    //     buttons: true
-                    // })
+                    // function createAlert() {
+                    //     console.log("Creating Alert");
+                    //     console.log(randomPerson);
 
-                    function createAlert() {
-                        console.log("Creating Alert");
-                        console.log(randomPerson);
-
-                        var modal = $('<div class="modal" tabindex="-1" role="dialog">');
-                        var modalTitle = $('<h5 class="modal-title">').text("Your match is..");
-                        var modalBody = $('<div class="modal-body">');
+                    //     var modal = $('<div class="modal" tabindex="-1" role="dialog">');
+                    //     var modalTitle = $('<h5 class="modal-title">').text("Your match is..");
+                    //     var modalBody = $('<div class="modal-body">');
                         
-                    }
-
+                    // }
+                    // createAlert();
                 });
             }
 
