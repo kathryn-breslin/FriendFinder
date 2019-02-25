@@ -7,15 +7,21 @@
     <!-- Latest compiled and minified CSS & JS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- <link rel="stylesheet" href="../public/assets/css/style.css"> -->
+    <link rel="stylesheet" href="css/style.css">
+
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
 <body>
-    <div class="container">
+    <nav class="navbar navbar-light bg-light">
+        <div id="home">
+            <a class="btn btn-primary btn-lg" href="/" role="button">Home</a>
+        </div>
+    </nav>
 
+    <div class="container" id="surveyContainer">
         <h1>Friend Finder Survey</h1>
         <h3>Answer these questions.</h3>
 
@@ -61,7 +67,8 @@
 
             <div class="form-group">
                 <h5>Question Three</h5>
-                <label for="questionThree">You find it easy to stay relaxed and focused even when there is some pressure.</label>
+                <label for="questionThree">You find it easy to stay relaxed and focused even when there is some
+                    pressure.</label>
                 <select class="form-control" id="questionThree">
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -133,7 +140,8 @@
 
             <div class="form-group">
                 <h5>Question Nine</h5>
-                <label for="questionNine">You think that everyone’s views should be respected regardless of whether they are supported by facts or
+                <label for="questionNine">You think that everyone’s views should be respected regardless of whether
+                    they are supported by facts or
                     not.
                 </label>
                 <select class="form-control" id="questionNine">
@@ -200,7 +208,7 @@
 
             function getMatch() {
                 var currentURL = window.location.origin;
-                
+
                 $.ajax({
                     url: currentURL + "/api/friends",
                     method: "GET"
@@ -217,7 +225,7 @@
                     swal({
                         title: "Your match is..",
                         text: randomPerson.name,
-                        icon: "success", 
+                        icon: "success",
                         buttons: true
                     })
 
@@ -228,7 +236,7 @@
                     //     var modal = $('<div class="modal" tabindex="-1" role="dialog">');
                     //     var modalTitle = $('<h5 class="modal-title">').text("Your match is..");
                     //     var modalBody = $('<div class="modal-body">');
-                        
+
                     // }
                     // createAlert();
                 });

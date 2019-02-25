@@ -1,29 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Friend Finder</title>
   <!-- Latest compiled and minified CSS & JS -->
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Staatliches" rel="stylesheet">
+  <!-- Bootstrap -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <!-- 
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+  <!-- Style -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- jQuery -->
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> -->
+  <!-- Sweet Alert -->
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  
-</head>
-<body>
-        <div class="container">
-                <div class="jumbotron">
-                  <h1>Friend Finder</h1>
-                  <h3>Answer a few basic questions.</h3>
-                  <h3>Then find the friends with the greatest compatibility!</h3>
-                  <hr>
-                  <a href="/survey"><button class="btn btn-primary btn-lg"><span class="fa fa-submit"></span> Go To Survey </button></a>
-                </div>
-        </div>
 
-        <!-- <script src="public/assets/js/main.js"></script> -->
-       
+</head>
+
+<body>
+  <div class="jumbotron jumbotron-fluid">
+    <video id="video-background" controls autoplay muted loop>
+      <source src="assets/images/sanFran.mp4" type="video/mp4">
+    </video>
+    <div class="homeContents">
+      <h1 class="display-4" id="title">Friend Finder</h1>
+      <p class="lead">Find your best friends in seconds!</p>
+    </div>
+  </div>
+  <div id="survey">
+      <a class="btn btn-primary btn-lg" href="/survey" role="button">Find Friends</a>
+</div>
 </body>
+
+
+<!-- Script for Video Play -->
+<script>
+  document.getElementById("video-background").onload = function () {
+    var video = document.getElementById("video-background").play;
+  }
+
+  // document.getElementById("survey").onclick = function () {
+  //   location.href = "/survey";
+  // }
+</script>
+
 </html>

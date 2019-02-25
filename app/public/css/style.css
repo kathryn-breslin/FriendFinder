@@ -1,0 +1,58 @@
+.jumbotron {
+    position: relative;
+    z-index:-2;
+}
+
+.homeContents {
+    position: relative;
+    color: #ffffff;
+    z-index: 2;
+}
+
+#video-background {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: -1;
+    width:100%;
+    pointer-events: none;
+    /* opacity: 0.8; */
+}
+
+
+.jumbotron #title {
+    color: white;
+    font-family: 'Staatliches', cursive;
+    font-size: 170px;
+    margin-top: 100px;;
+    /* text-shadow: blue 5px 0 15px; */
+    text-shadow: -2px 0 blue, 0 2px blue, 2px 0 blue, 0 -2px blue;
+    text-align: center;
+}
+
+.jumbotron p {
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    text-shadow: -1px 0 blue, 0 1px blue, 1px 0 blue, 0 -1px blue;
+}
+
+/* .jumbotron a {
+    margin: auto;
+    align: center;
+} */
+
+#survey {
+    text-align: center;
+}
+
+#surveyContainer {
+    background-color: #eee;
+    text-align: center;
+    width: 60%;
+    margin-top: 50px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
