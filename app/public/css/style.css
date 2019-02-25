@@ -1,24 +1,17 @@
-.jumbotron {
-    position: relative;
-    z-index:-2;
-}
 
-.homeContents {
-    position: relative;
-    color: #ffffff;
-    z-index: 2;
+.jumbotron {
+    background: none
 }
 
 #video-background {
     position: fixed;
-    top: 0;
-    right: 0;
+    right: 0; 
     bottom: 0;
-    left: 0;
-    overflow: hidden;
-    z-index: -1;
-    width:100%;
-    pointer-events: none;
+    min-width: 100%; 
+    min-height: 100%;
+    width: auto; 
+    height: auto;
+    z-index: -100;
     /* opacity: 0.8; */
 }
 
@@ -40,19 +33,30 @@
     text-shadow: -1px 0 blue, 0 1px blue, 1px 0 blue, 0 -1px blue;
 }
 
-/* .jumbotron a {
+.jumbotron a {
     margin: auto;
     align: center;
-} */
+} 
 
-#survey {
+ #survey {
     text-align: center;
 }
 
-#surveyContainer {
+/* #surveyContainer {
     background-color: #eee;
     text-align: center;
     width: 60%;
     margin-top: 50px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+} */
+
+#video-background-survey {
+    position: fixed;
+    right: 0; 
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+    width: auto; 
+    height: auto;
+    z-index: -100;
 }
