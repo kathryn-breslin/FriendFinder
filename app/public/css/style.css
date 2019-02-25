@@ -60,3 +60,13 @@
     height: auto;
     z-index: -100;
 }
+
+ .modal-title {
+     color: blue;
+     font-size: 20px;
+ }
+ 
+ .modal-body {
+    margin-left: 20px;
+    margin-right: 20px;
+}
